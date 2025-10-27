@@ -1,145 +1,46 @@
-# Projeto: Machine Learning - Modelos de Regressão
+# Projeto: Machine Learning - Previsão de Desempenho Acadêmico
 
 **Disciplina:** Introdução à Machine Learning - 2025.1
 **Professor:** Professor Durval
-**Organização:** uninassau-ml-classroom
-
-Este repositório é o seu ponto de partida (template) para a atividade de Modelos de Regressão. Siga as orientações semanais e utilize o fluxo de trabalho Git detalhado abaixo.
 
 ---
 
-## 🚀 Fluxo de Trabalho e Regras de Entrega
+## 📋 Sobre o Projeto
 
-Para garantir a rastreabilidade e a avaliação correta do seu progresso, é **obrigatório** seguir o fluxo Git baseado em *branches* (ramos) e *commits* **a cada semana de entrega**.
+Bem-vindo ao seu projeto final de Machine Learning!
 
-### 1. Crie uma Branch Semanal
+Você desenvolverá um modelo de **regressão** para prever o desempenho acadêmico final de estudantes universitários, utilizando dados sobre hábitos de estudo, condições socioeconômicas e características pessoais.
 
-Para iniciar o trabalho de cada semana, crie uma nova *branch* a partir da `main` no seu repositório, usando o padrão: `semana/X-nome-da-tarefa`.
+### 🎯 Objetivo
 
-**Exemplo para a 1ª Semana:**
-```bash
-git checkout main
-git pull origin main
-git checkout -b semana/1-analise-exploratoria
-```
-
-### 2. Commits e Progresso
-
-Faça *commits* pequenos e frequentes na sua *branch* de trabalho, documentando seu progresso.
-
-**Boas práticas para mensagens de commit:**
-```bash
-# Adicionando uma nova funcionalidade
-git commit -m "feat: Adiciona visualização de distribuição das features"
-
-# Corrigindo um erro
-git commit -m "fix: Corrige cálculo de valores faltantes"
-
-# Atualizando documentação
-git commit -m "docs: Atualiza análise de correlação no notebook"
-
-# Refatorando código
-git commit -m "refactor: Reorganiza funções de pré-processamento"
-```
-
-### 3. Entrega Semanal (Pull Request)
-
-Ao final de cada semana (ou quando a etapa for concluída), você deve abrir um **Pull Request (PR)** da sua *branch* semanal para a `main`.
-
-**Como criar um Pull Request:**
-1. Faça push da sua branch:
-   ```bash
-   git push origin semana/1-analise-exploratoria
-   ```
-
-2. No GitHub, vá até o repositório e clique em **"Compare & pull request"**
-
-3. Preencha o PR com:
-   - **Título:** `ENTREGA SEMANA 1: Análise Exploratória de Dados`
-   - **Descrição:**
-     ```markdown
-     ## O que foi feito
-     - Análise de valores faltantes
-     - Visualizações de distribuição
-     - Análise de correlação
-
-     ## Desafios encontrados
-     - [Descreva dificuldades]
-
-     ## Arquivos modificados/criados
-     - notebooks/01_EDA.ipynb
-     - data/processed/dataset_clean.csv
-     ```
-
-### 4. Integração (Merge)
-
-O professor (ou o sistema de Autograding, se configurado) revisará seu PR. Somente após a aprovação, o PR será aceito (Merge).
-
-**⚠️ IMPORTANTE:** Você só deve começar a próxima semana após o `merge` da anterior.
+Criar um modelo que possa identificar estudantes em risco de baixo desempenho, permitindo intervenções preventivas como tutoria e aconselhamento acadêmico.
 
 ---
 
-## 📋 Etapas do Projeto (Cronograma e Requisitos)
+## 📊 Dataset
 
-| Etapa | Semana | Prazo de Entrega (PR) | Diretrizes e Entregáveis | Pastas Envolvidas |
-|:---:|:---:|:---:|:---|:---|
-| **01** | **Semana 1** | [DD/MM/AAAA] | **Análise Exploratória (EDA):** Carregue o dataset (em `data/raw`), trate valores nulos, faça visualizações e descreva as principais características. **Entregável:** `notebooks/01_EDA.ipynb` | `data/raw/`, `notebooks/` |
-| **02** | **Semana 2** | [DD/MM/AAAA] | **Pré-processamento e Baseline:** Crie e salve o dataset limpo (`data/processed/`), faça *feature engineering* e treine o modelo de Regressão Linear Simples (Baseline). **Entregável:** `notebooks/02_Preprocessamento_Baseline.ipynb` | `data/processed/`, `notebooks/`, `src/` |
-| **03** | **Semana 3** | [DD/MM/AAAA] | **Modelos Avançados:** Implemente e compare outros modelos de Regressão (Ridge, Lasso, Random Forest, XGBoost). Documente a performance (RMSE, R², MAE). **Entregável:** `notebooks/03_Modelos_Avancados.ipynb` | `notebooks/` |
-| **04** | **Semana 4** | [DD/MM/AAAA] | **Otimização e Conclusão:** Ajuste de hiperparâmetros (GridSearch/RandomSearch), escolha o melhor modelo e gere um relatório final. **Entregável:** `notebooks/04_Otimizacao_Final.ipynb` + `docs/RELATORIO_FINAL.md` | `notebooks/`, `docs/` |
+O dataset contém informações de **2.510 estudantes universitários** com 13 variáveis (features):
 
----
+- **Dados demográficos:** idade, gênero, educação dos pais
+- **Desempenho acadêmico:** notas anteriores, frequência, horas de estudo
+- **Condições de estudo:** qualidade da internet, tutoria, atividades extracurriculares
+- **Saúde e bem-estar:** horas de sono, estado de saúde
+- **Contexto socioeconômico:** renda familiar
 
-## 📁 Estrutura do Projeto
+**Variável Alvo:** `final_grade` (nota final, 0-100 pontos)
 
-```
-.
-├── data/
-│   ├── raw/              # Dados brutos fornecidos (NÃO MODIFICAR)
-│   │   └── [dataset].csv
-│   └── processed/        # Dados limpos e processados (você cria)
-│       └── dataset_clean.csv
-├── notebooks/            # Notebooks Jupyter das análises semanais
-│   ├── 01_EDA.ipynb
-│   ├── 02_Preprocessamento_Baseline.ipynb
-│   ├── 03_Modelos_Avancados.ipynb
-│   └── 04_Otimizacao_Final.ipynb
-├── src/                  # Scripts Python (opcional, para código reutilizável)
-│   ├── preprocessing.py
-│   ├── models.py
-│   └── utils.py
-├── docs/                 # Documentação adicional
-│   └── RELATORIO_FINAL.md
-├── .gitignore
-├── requirements.txt      # Dependências Python
-└── README.md            # Este arquivo
-```
-
-### Descrição das Pastas
-
-- **`data/raw/`**: Contém o dataset fornecido pelo professor. **NÃO modifique estes arquivos!**
-- **`data/processed/`**: Armazene aqui os dados limpos e pré-processados que você criar.
-- **`notebooks/`**: Crie seus notebooks Jupyter aqui, seguindo a numeração das semanas.
-- **`src/`**: (Opcional) Para organizar funções reutilizáveis em módulos Python.
-- **`docs/`**: Documentação adicional, incluindo o relatório final.
+📖 **Documentação completa:** Consulte `data/raw/README.md` para descrição detalhada de cada variável.
 
 ---
 
-## 💻 Como Iniciar (Setup do Ambiente)
+## 🚀 Como Começar
 
-### 1. Clone o Repositório
-
-Após aceitar a tarefa no GitHub Classroom, clone seu repositório:
+### 1. Setup do Ambiente
 
 ```bash
-git clone https://github.com/uninassau-ml-classroom/[seu-repositorio].git
-cd [nome-do-repositorio]
-```
+# Clonar o repositório (você já fez isso!)
+cd [nome-do-seu-repositorio]
 
-### 2. Configure o Ambiente Virtual
-
-**Opção 1: usando venv (recomendado)**
-```bash
 # Criar ambiente virtual
 python -m venv venv
 
@@ -147,145 +48,141 @@ python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # ou
 venv\Scripts\activate     # Windows
-```
 
-**Opção 2: usando conda**
-```bash
-# Criar ambiente
-conda create -n ml-projeto python=3.10
-
-# Ativar ambiente
-conda activate ml-projeto
-```
-
-### 3. Instale as Dependências
-
-```bash
+# Instalar dependências
 pip install -r requirements.txt
+
+# Verificar instalação
+python -c "import pandas, numpy, sklearn; print('✅ Pronto!')"
 ```
 
-### 4. Verifique a Instalação
+### 2. Explorar o Dataset
 
 ```bash
-# Testar se as bibliotecas foram instaladas
-python -c "import pandas, numpy, sklearn, seaborn, matplotlib; print('✅ Todas as bibliotecas instaladas!')"
-```
-
-### 5. Inicie a Primeira Semana
-
-```bash
-# Criar branch da Semana 1
-git checkout -b semana/1-analise-exploratoria
-
-# Iniciar Jupyter
+# Iniciar Jupyter Notebook
 jupyter notebook
 ```
 
-Crie seu primeiro notebook (`notebooks/01_EDA.ipynb`) e comece a análise exploratória!
+O dataset está em: `data/raw/students_performance.csv`
+
+### 3. Começar a Primeira Análise
+
+**Código de exemplo para começar:**
+
+Consulte `notebooks/00_EXEMPLO_STARTER.py` para ver um exemplo completo de código de Análise Exploratória de Dados (EDA).
+
+Você pode:
+- Copiar seções do código para seu notebook
+- Usar como referência para sua própria análise
+- Expandir com suas próprias visualizações e descobertas
 
 ---
 
-## 📊 Dataset Disponível
+## 📁 Estrutura do Repositório
 
-O dataset está localizado em `data/raw/` e contém dados para um problema de regressão.
-
-**IMPORTANTE:** Consulte o arquivo `data/raw/README.md` (se disponível) para:
-- Descrição das variáveis (features)
-- Contexto do problema
-- Dicionário de dados
-
----
-
-## ✅ Checklist de Cada Semana
-
-Antes de abrir seu Pull Request, verifique:
-
-- [ ] Todos os notebooks executam do início ao fim (`Restart & Run All`)
-- [ ] Código está comentado e organizado
-- [ ] Commits foram feitos regularmente (não apenas 1 commit gigante)
-- [ ] Mensagens de commit são descritivas
-- [ ] Arquivos gerados estão nas pastas corretas
-- [ ] `.gitignore` está impedindo arquivos desnecessários de serem commitados
-- [ ] Pull Request tem título e descrição claros
-- [ ] Você testou seu código antes de fazer push
-
----
-
-## 🚫 O Que NÃO Fazer
-
-❌ **NÃO faça commits diretamente na `main`** - Sempre use branches
-❌ **NÃO modifique arquivos em `data/raw/`** - São os dados originais
-❌ **NÃO faça commit de arquivos grandes** (modelos .pkl, venv/, etc.) - Use .gitignore
-❌ **NÃO copie código de outros alunos** - Plágio será penalizado
-❌ **NÃO deixe para última hora** - Commits regulares são parte da avaliação
-
----
-
-## 📚 Recursos Úteis
-
-### Documentação Oficial
-- [Pandas](https://pandas.pydata.org/docs/)
-- [Scikit-learn](https://scikit-learn.org/stable/)
-- [Matplotlib](https://matplotlib.org/stable/contents.html)
-- [Seaborn](https://seaborn.pydata.org/)
-
-### Tutoriais Recomendados
-- [Git Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
-- [Jupyter Notebook Tips](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/)
-- [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
-
-### Fluxo Git Resumido
-```bash
-# 1. Criar nova branch
-git checkout -b semana/X-nome-tarefa
-
-# 2. Trabalhar e fazer commits
-git add .
-git commit -m "feat: descrição do que foi feito"
-
-# 3. Enviar para GitHub
-git push origin semana/X-nome-tarefa
-
-# 4. Abrir Pull Request no GitHub
-
-# 5. Após merge aprovado, voltar para main
-git checkout main
-git pull origin main
+```
+.
+├── data/
+│   ├── raw/                    # Dataset original (NÃO MODIFICAR)
+│   │   ├── students_performance.csv
+│   │   └── README.md          # Documentação do dataset
+│   └── processed/              # Seus dados processados (você cria)
+│
+├── notebooks/                  # Seus notebooks Jupyter
+│   ├── 00_EXEMPLO_STARTER.py  # Código exemplo (ponto de partida)
+│   └── README.md              # Guia dos notebooks
+│
+├── src/                        # Scripts Python (opcional)
+│
+├── docs/                       # Documentação adicional
+│   ├── BOAS_PRATICAS.md       # Guia de boas práticas
+│   └── TEMPLATE_RELATORIO_FINAL.md  # Template para relatório
+│
+├── requirements.txt            # Dependências do projeto
+└── README.md                  # Este arquivo
 ```
 
 ---
 
-## ❓ Suporte
+## 📚 Documentação e Recursos
 
-Em caso de dúvidas:
+### Documentação Incluída no Projeto
 
-1. **Sobre Git/GitHub:** Consulte a [documentação oficial do Git](https://git-scm.com/doc)
-2. **Sobre o projeto:** Abra uma Issue neste repositório ou procure o professor
-3. **Problemas técnicos:** Verifique se todas as dependências foram instaladas corretamente
+- **`data/raw/README.md`** - Descrição completa do dataset
+- **`notebooks/README.md`** - Guia para criar seus notebooks
+- **`docs/BOAS_PRATICAS.md`** - Boas práticas de código e análise
+- **`docs/TEMPLATE_RELATORIO_FINAL.md`** - Estrutura para relatório final
 
-**⚠️ ATENÇÃO:** Não faça commits diretamente na `main` sem abrir um Pull Request. Isso pode resultar em penalização na nota.
+### Bibliotecas Principais
 
----
+- **pandas** - Manipulação de dados
+- **numpy** - Operações numéricas
+- **matplotlib / seaborn** - Visualizações
+- **scikit-learn** - Machine Learning
+- **xgboost / lightgbm** - Modelos avançados
 
-## 🏆 Critérios de Avaliação
-
-Cada entrega semanal será avaliada considerando:
-
-| Critério | Peso | Descrição |
-|----------|:----:|-----------|
-| **Código Funcional** | 30% | Código executa sem erros, está organizado e bem estruturado |
-| **Análise Técnica** | 30% | Qualidade da análise, uso correto de técnicas de ML |
-| **Documentação** | 20% | Código comentado, notebooks claros, README atualizado |
-| **Fluxo Git** | 10% | Uso correto de branches, commits descritivos e regulares |
-| **Visualizações** | 10% | Gráficos informativos e bem formatados |
-
-### Pontuação Extra
-- Implementações criativas (+0.5)
-- Análises além do solicitado (+0.5)
-- Código muito bem organizado (+0.3)
+📖 Links úteis:
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [Scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)
+- [Seaborn Gallery](https://seaborn.pydata.org/examples/index.html)
 
 ---
 
-**Boa sorte no projeto! 🚀**
+## 🎓 Etapas do Projeto
+
+O projeto está dividido em etapas semanais. Você receberá instruções específicas do professor para cada etapa.
+
+### Visão Geral:
+
+1. **Análise Exploratória (EDA)** - Conhecer e entender os dados
+2. **Pré-processamento** - Limpar e preparar os dados
+3. **Modelagem** - Treinar e comparar modelos
+4. **Otimização e Relatório** - Ajustar modelo e documentar resultados
+
+**📋 Instruções detalhadas de cada etapa serão fornecidas pelo professor.**
+
+---
+
+## ⚠️ Importante
+
+### O Que Você DEVE Fazer:
+
+- ✅ Criar seus próprios notebooks na pasta `notebooks/`
+- ✅ Fazer commits regulares documentando seu progresso
+- ✅ Consultar a documentação incluída no projeto
+- ✅ Salvar dados processados em `data/processed/`
+- ✅ Seguir as boas práticas descritas em `docs/BOAS_PRATICAS.md`
+
+### O Que Você NÃO DEVE Fazer:
+
+- ❌ Modificar arquivos em `data/raw/` (dados originais)
+- ❌ Fazer commit de arquivos grandes (modelos `.pkl`, datasets processados grandes)
+- ❌ Deixar código sem comentários
+- ❌ Copiar código sem entender
+
+---
+
+## 🆘 Precisa de Ajuda?
+
+1. **Dataset:** Consulte `data/raw/README.md`
+2. **Como começar:** Veja `notebooks/00_EXEMPLO_STARTER.py`
+3. **Boas práticas:** Leia `docs/BOAS_PRATICAS.md`
+4. **Dúvidas técnicas:** Procure o professor
+5. **Documentação oficial:** Links das bibliotecas acima
+
+---
+
+## 🏆 Dicas de Sucesso
+
+- 📖 **Leia toda a documentação incluída** antes de começar
+- 🔄 **Faça commits frequentes** com mensagens descritivas
+- 📊 **Documente suas descobertas** em células markdown
+- 🧪 **Teste seu código** antes de submeter
+- 💡 **Seja criativo** na exploração dos dados
+- 🤝 **Consulte a documentação** das bibliotecas
+
+---
+
+**Boa sorte e bom código!** 🚀
 
 *Última atualização: Outubro 2027*
