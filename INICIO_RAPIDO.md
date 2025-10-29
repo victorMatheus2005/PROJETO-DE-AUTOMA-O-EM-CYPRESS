@@ -89,7 +89,7 @@ seu-repositorio/
 
 | Semana | Etapa | O que fazer | Apresentação |
 |:------:|-------|-------------|:------------:|
-| **1** | EDA | Explorar dados, fazer análises | ❌ Não |
+| **1** | EDA | Explorar dados, fazer análises | ✅ Sim |
 | **2** | Pré-processamento | Limpar dados, criar features | ✅ 10 min |
 | **3** | Modelagem | Treinar modelos, comparar | ✅ 15 min |
 | **4** | Otimização | Otimizar hiperparâmetros | ✅ 15 min |
@@ -167,14 +167,6 @@ seu-repositorio/
 2. ✅ Leu o `etapas/etapaX/README.md` da etapa atual?
 3. ✅ Pesquisou na documentação oficial?
 4. ✅ Discutiu com o grupo?
-
-### Como Pedir Ajuda
-✅ **BOM:**
-> "Estou na Etapa 1, questão 12, tentando calcular correlações. Já li a doc do Pandas sobre `.corr()`, mas quando executo `df.corr()` recebo erro `ValueError: could not convert string to float`. Já tentei verificar os tipos com `df.dtypes` e vi que há colunas categóricas. Como proceder?"
-
-❌ **RUIM:**
-> "Não tá funcionando, me ajuda?"
-
 ---
 
 ## 🎓 Filosofia do Projeto
@@ -213,5 +205,3 @@ Agora é só começar! 🎉
 **Boa sorte e bom trabalho!** 💪
 
 ---
-
-**Última atualização:** Outubro 2027
