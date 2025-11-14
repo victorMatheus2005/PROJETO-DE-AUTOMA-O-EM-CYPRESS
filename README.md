@@ -33,7 +33,7 @@ Cada etapa tem:
 |:------:|-------|-------------|:------------:|
 | **1** | [📊 EDA - Análise Exploratória](#-etapa-1-eda) | `notebooks/01_EDA.ipynb` | ✅ 5 min |
 | **2** | [🔧 Pré-processamento](#-etapa-2-pré-processamento) | Notebook + Dataset limpo + Scaler | ✅ 5 min |
-| **3** | [🤖 Modelagem](#-etapa-3-modelagem) | `notebooks/03_Modelagem.ipynb` | ✅ 10 min |
+| **3** | [🤖 Modelo Baseline](#-etapa-3-modelo-baseline) | `notebooks/03_Baseline.ipynb` + Modelo + Relatório | ✅ 10 min |
 | **4** | [⚡ Otimização](#-etapa-4-otimização) | Notebook + Modelo final | ✅ 10 min |
 | **5** | [🎤 Apresentação Final](#-etapa-5-apresentação-final) | Relatório completo | ✅ 20-25 min |
 
@@ -104,27 +104,47 @@ Cada etapa tem:
 
 ---
 
-### 🤖 Etapa 3: Modelagem
+### 🤖 Etapa 3: Modelo Baseline
 
-**O que fazer:** Treinar e comparar múltiplos modelos de ML
+**O que fazer:** Criar e avaliar seu primeiro modelo de Machine Learning
 **Entregáveis:**
-- `notebooks/03_Modelagem.ipynb`
+- `notebooks/03_Baseline.ipynb`
+- Modelo salvo (`.pkl`)
+- Relatório com interpretações
 - **🎤 Apresentação de 10 minutos**
 
 **Peso:** 20% (17% notebook + 3% apresentação)
+**Tempo estimado:** 8-10 horas
 
 **Principais tarefas:**
-- Modelo baseline (Regressão Linear)
-- Testar pelo menos 3 modelos diferentes
-- Validação cruzada
-- Comparar métricas (MAE, RMSE, R²)
-- Selecionar melhor modelo
+- Dividir dados (60% treino / 20% validação / 20% teste)
+- Treinar modelo de **Regressão Linear** (baseline)
+- Calcular métricas (MSE, RMSE, MAE, R²)
+- **Interpretar métricas** em palavras (não só números!)
+- Analisar resíduos e identificar overfitting
+- **Storytelling:** Comunicar resultados de forma clara
+
+**Material disponível:**
+- 📖 **GUIA_COMPLETO.md** (30 KB - LEITURA OBRIGATÓRIA)
+  - Explicação detalhada das métricas
+  - Como interpretar gráficos passo a passo
+  - Pseudo-códigos de exemplo
+  - Guia completo de storytelling
+  - Como identificar overfitting
+- 💻 **TEMPLATE_CODIGO.py** - Código pronto comentado (450+ linhas)
 
 **Apresentação deve incluir:**
-- Modelos testados
-- Comparação de desempenho (gráficos!)
-- Melhor modelo e justificativa
-- Análise de erros
+- Métricas com interpretação (R²=0.72 significa o quê?)
+- Análise de overfitting (treino vs validação)
+- Top 3 features mais importantes
+- Storytelling: contexto → resultados → conclusões
+- Próximos passos para Etapa 4
+
+**Novidades da Etapa 3:**
+- ✨ **Foco em interpretação** - Não basta calcular, precisa explicar!
+- ✨ **Guia de storytelling** - Como comunicar resultados
+- ✨ **Pseudo-códigos pedagógicos** - Entenda o fluxo antes de programar
+- ✨ **Material completo em GUIA_COMPLETO.md** - Tudo em um lugar!
 
 📄 **[Ver instruções completas →](etapas/etapa3/README.md)**
 
@@ -237,7 +257,9 @@ jupyter notebook
 │   ├── etapa2/
 │   │   └── README.md           # ⭐ Instruções detalhadas Etapa 2
 │   ├── etapa3/
-│   │   └── README.md           # ⭐ Instruções detalhadas Etapa 3
+│   │   ├── README.md           # ⭐ Roteiro de estudo
+│   │   ├── GUIA_COMPLETO.md    # ⭐ Métricas, storytelling, pseudo-códigos
+│   │   └── TEMPLATE_CODIGO.py  # ⭐ Código pronto comentado
 │   ├── etapa4/
 │   │   └── README.md           # ⭐ Instruções detalhadas Etapa 4
 │   └── etapa5/
@@ -258,7 +280,7 @@ jupyter notebook
 │   ├── 00_EXEMPLO_STARTER.py  # Código de exemplo
 │   ├── 01_EDA.ipynb           # (você cria - Etapa 1)
 │   ├── 02_Preprocessamento.ipynb # (você cria - Etapa 2)
-│   ├── 03_Modelagem.ipynb     # (você cria - Etapa 3)
+│   ├── 03_Baseline.ipynb      # (você cria - Etapa 3)
 │   └── 04_Otimizacao.ipynb    # (você cria - Etapa 4)
 │
 ├── models/                     # Modelos treinados
@@ -563,4 +585,9 @@ Vocês têm tudo que precisam para desenvolver um projeto completo de Machine Le
 
 **📌 Próximo Passo:** Leia **[etapas/etapa1/README.md](etapas/etapa1/README.md)** para começar!
 
-*Última atualização: 29 de outubro 2025*
+*Última atualização: 13 de novembro 2025*
+
+**Changelog:**
+- **13/11/2025:** Etapa 3 atualizada - Foco em modelo baseline com guia completo de métricas e storytelling
+- **29/10/2025:** Etapa 2 atualizada - Análise de skewness adicionada
+- **Inicial:** Estrutura base do projeto

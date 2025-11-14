@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pkl
+*.joblib
+
+# Dados e visualizações (serão geradas)
+*.csv
+*.png
+*.jpg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
